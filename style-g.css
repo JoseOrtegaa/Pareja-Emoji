@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600&family=Roboto:wght@100;300;400;700&display=swap');
+
+/*···················· BODY ······················ */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  background: #51e0f6;
+}
+
+/*···················· HEADER ······················ */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+}
+
+header>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  width: 95%;
+}
+
+header>div>h3 {
+  font-size: 1.3rem;
+
+  animation-name: color-rgb;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+header>div>a {
+  font-size: 1.2rem;
+  color: #fff8f8e9;
+  text-shadow: 1px 1px 1px #43434391;
+  text-decoration: none;
+}
+
+header>div>h3::selection {
+  animation-name: color-rgb;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+/*···················· SCORE ······················ */
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+}
+
+.score>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5rem;
+  width: 95%;
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+#intentos {
+  color: #ffffff;
+  font-weight: 500;
+
+  text-shadow: 1px 1px .5px rgba(116, 116, 116, 0.513);
+}
+
+#fallos {
+  color: #ff1100;
+  font-weight: 500;
+
+  text-shadow: 1px 2px 1px rgba(234, 4, 4, 0.373);
+}
+
+#aciertos {
+  color: #1eff00;
+  font-weight: 500;
+
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.709);
+}
+
+/*···················· SECTION CENTRAL CONTENT & CARDS······················ */
+.main-content {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+}
+
+.card {
+  width: 5rem;
+  height: 6rem;
+  perspective: 600px;
+  margin: 0.5rem 0.3rem;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(74, 74, 74);
+  display: grid;
+  place-content: center;
+  font-size: 2.5rem;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.front>img {
+  height: 3rem;
+}
+
+.back {
+  background: linear-gradient(rgb(48, 157, 246), rgb(155, 192, 241));
+  transform: rotateY(180deg);
+}
+
+.card.flipped .content {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+/*···················· BTN REINICIAR······················ */
+.div-rei {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+}
+
+.div-rei>a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: rgba(255, 0, 0, 0.905);
+
+}
+
+.div-rei>a::selection{
+  color: rgba(255, 0, 0, 0.905);
+}
+
+/*····················ANIMACION DE COLOR······················ */
+@keyframes color-rgb {
+  5% {
+    color: rgb(248, 248, 252);
+  }
+
+  9% {
+    color: rgb(247, 115, 0);
+  }
+
+  18% {
+    color: rgb(250, 175, 0)
+  }
+
+  27% {
+    color: rgb(97, 195, 4)
+  }
+
+  36% {
+    color: rgb(47, 255, 0)
+  }
+
+  45% {
+    color: rgb(0, 85, 255)
+  }
+
+  54% {
+    color: rgb(4, 0, 255)
+  }
+
+  63% {
+    color: rgb(157, 0, 255)
+  }
+
+  72% {
+    color: rgb(255, 0, 238)
+  }
+
+  81% {
+    color: rgb(255, 0, 136)
+  }
+
+  90% {
+    color: rgb(255, 0, 55)
+  }
+
+  100% {
+    color: rgb(78, 78, 78);
+  }
+}
+
+/*···················· MEDIA QUERY DE 768px ······················ */
+@media (min-width: 768px) {
+
+  /*···················· HEADER ······················ */
+  header>div>h3 {
+    font-size: 2rem;
+  }
+
+  header>div>a {
+    font-size: 1.8rem;
+
+  }
+
+  /*···················· SCORE ······················ */
+  .score {
+    height: 4.5rem;
+  }
+
+  .score>div {
+    font-size: 1.7rem;
+  }
+
+  /*···················· CARDS······················ */
+  .card {
+    width: 5rem;
+    height: 6rem;
+    margin: 0.5rem 0.5rem;
+  }
+
+  /*···················· BTN REINICIAR······················ */
+  .div-rei>a {
+    font-size: 1.5rem;
+  }
+
+
+}
+
+/*···················· MEDIA QUERY DE 1024px ······················ */
+@media (min-width: 1024px) {
+
+  /*···················· HEADER ······················ */
+  header>div>h3 {
+    font-size: 2.3rem;
+  }
+
+  header>div>a {
+    font-size: 2rem;
+
+  }
+
+  /*···················· SCORE ······················ */
+  .score {
+    height: 5rem;
+  }
+
+  .score>div {
+    font-size: 2rem;
+  }
+
+  /*···················· CARDS······················ */
+  .card {
+    width: 6rem;
+    height: 7rem;
+    margin: 0.5rem 0.5rem;
+  }
+
+  /*···················· BTN REINICIAR······················ */
+  .div-rei>a {
+    font-size: 1.7rem;
+  }
+}
